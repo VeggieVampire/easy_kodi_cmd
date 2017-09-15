@@ -1,7 +1,7 @@
 #!/bin/bash
 #  *****Z
 #
-# KODI CEC COMMANDS
+# KODI HDMI CEC COMMANDS
 #
 # Author Nick Farrow
 #
