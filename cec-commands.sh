@@ -1,13 +1,13 @@
 #!/bin/bash
 #  *****Z
 #
-# KODI HDMI CEC COMMANDS
+# KODI CEC COMMANDS
 #
 # Author Nick Farrow
 #
 # Initial Release: 0
 
-
+yourname="Nick"
 
 # switch on TV
         ONZ()
@@ -57,6 +57,11 @@
                 echo 'cec-client can tell you the commands it knows'
                                 echo h | cec-client -s -d 1|grep -v DEBUG|grep -v TRAFFIC
         }
+# cec-client power status
+        STATUZ()
+        {
+                echo 'pow 0' | cec-client -s -d 1 RPI
+        }
 
 # MAIN BODY OF SCRIPT
 #
@@ -65,7 +70,7 @@
         echo " What would you like to do?"
         PS3="Please select a numeric option:  "
 
-        select option in Turn_On  Turn_Off Switch_Pi_Source Mute_TV STANDBY_ALL INFO HELP Exit
+        select option in Turn_On  Turn_Off Switch_Pi_Source Mute_TV STANDBY_ALL INFO Status HELP Exit
 
         do
                 case "$option"
@@ -76,7 +81,8 @@
                                 Mute_TV )  MUTEZ;;
                                 STANDBY_ALL )  STANDBYZ;;
                                 INFO )  INFOZ;;
-                                                                HELP )  HELPZ;;
+                                Status )  STATUZ;;
+                                HELP )  HELPZ;;
                                 Exit         )  exit 0;;
                                 *            )  echo "Invalid selection ! ";;
                        esac
